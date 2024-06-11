@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Song Guessing Quiz by Rishabh Acharya</title>
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* CSS Styles for index.html */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1DB954, #191414);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #1DB954;
+        }
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #1DB954;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #ffffff;
+            color: #1DB954;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #1DB954;
+            color: #ffffff;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .links a:hover {
+            color: #1DB954;
+        }
+        .links i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Spotify Song Guessing Quiz</h1>
+        <h2>by Rishabh Acharya</h2>
+        <div class="links">
+            <a href="https://www.linkedin.com/in/iamrishabhacharya/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+            <a href="https://velociteriseup.github.io" target="_blank"><i class="fas fa-briefcase"></i>Portfolio</a>
+        </div>
+        <form action="/start_quiz" method="POST">
+            <input type="text" name="playlist_link" placeholder="Enter Spotify playlist link" required>
+            <br>
+            <input type="submit" value="Start Quiz">
+        </form>
+        
+    </div>
+</body>
+</html>

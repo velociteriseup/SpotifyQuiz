@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Song Guessing Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* CSS Styles for quiz.html */
+      /* CSS Styles for quiz.html */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1DB954, #191414);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    max-width: 90%; /* Adjusted for mobile */
+    width: 90%;
+}
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+form {
+    margin-top: 20px;
+}
+.option {
+    display: block; /* Changed to block for mobile */
+    margin: 10px auto; /* Centered and adjusted margin */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 80%; /* Adjusted width for mobile */
+}
+.option input[type="radio"] {
+    display: none;
+}
+.option label {
+    font-size: 1em;
+    padding: 15px 20px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+    width: 100%; /* Fills the container */
+    display: block; /* Ensures each option takes up full width */
+    text-align: center; /* Centers text */
+}
+.option label:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+.option input[type="radio"]:checked + label {
+    background-color: #1DB954;
+}
+.option i {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+input[type="submit"] {
+    padding: 12px 20px;
+    font-size: 1.2em;
+    background-color: #ffffff;
+    color: #1DB954;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    width: 80%; /* Adjusted width for mobile */
+    display: block; /* Centered */
+    margin: 20px auto; /* Centered */
+}
+input[type="submit"]:hover {
+    background-color: #1DB954;
+    color: #ffffff;
+}
+audio {
+    display: block;
+    margin: 20px auto;
+    width: 80%; /* Adjusted width for mobile */
+}
+#countdown {
+    font-size: 1em;
+    color: #ffcc00;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Spotify Song Guessing Quiz</h2>
+        {% if track_info %}
+        <p>Question: {{ quiz_attempts + 1 }}</p>
+        <p>Current Score: {{ quiz_score }}</p>
+        <p>What is the name of the following track?</p>
+            <audio id="audioPlayer" controls>
+                <source src="{{ track_info['preview_url'] }}" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+            <p id="countdown"></p>
+            <form id="quizForm" action="/quiz" method="POST">
+                {% for option in options %}
+                <div class="option">
+                    <input type="radio" id="{{ option }}" name="user_answer" value="{{ option }}" onchange="enableSubmit()">
+                    <label for="{{ option }}">{{ option }}</label>
+                </div>
+                {% endfor %}
+                <input type="hidden" name="correct_answer" value="{{ correct_answer }}">
+                <input type="submit" id="submitButton" value="Submit Answer" disabled>
+            </form>
+            
+        {% else %}
+            <p>No more questions available.</p>
+        {% endif %}
+        {% if feedback %}
+            <p>{{ feedback }}</p>
+        {% endif %}
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        function enableSubmit() {
+            document.getElementById("submitButton").disabled = false;
+        }
+
+        var audioPlayer = document.getElementById("audioPlayer");
+        var countdownElement = document.getElementById("countdown");
+
+        audioPlayer.onplay = function() {
+            var secondsLeft = 10;
+            countdownElement.textContent = "Song will play for " + secondsLeft + " seconds";
+
+            var countdownInterval = setInterval(function() {
+                secondsLeft--;
+                countdownElement.textContent = "Song will play for " + secondsLeft + " seconds";
+
+                if (secondsLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.textContent = "";
+                    audioPlayer.pause();
+                }
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

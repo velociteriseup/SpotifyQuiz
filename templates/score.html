@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Score</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* CSS Styles for score.html */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1DB954;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.5em;
+        }
+        .emoticon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #1DB954;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        a:hover {
+            background-color: #1DB954;
+            color: #ffffff;
+        }
+        .links {
+            margin-top: 20px;
+        }
+        .links a {
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        .links a:hover {
+            color: #1DB954;
+        }
+        .links i {
+            margin-right: 5px;
+        }
+        .sad {
+            color: #ff6347;
+        }
+        .okay {
+            color: #ffd700;
+        }
+        .celebrate {
+            color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Quiz Completed</h2>
+        {% if quiz_score == 3 %}
+            <p class="emoticon celebrate">&#127881;</p>
+            <p>Congratulations! You got all answers correct!</p>
+        {% elif quiz_score == 2 %}
+            <p class="emoticon okay">&#128525;</p>
+            <p>Great Try! You scored {{ quiz_score }} out of 3 correct.</p>
+        {% elif quiz_score == 1 %}
+            <p class="emoticon okay">&#129319;</p>
+            <p>Oops! You got only {{ quiz_score }} out of 3 correct.</p>
+        {% else %}
+            <p class="emoticon sad">&#129325;</p>
+            <p>Oops! You couldn't guess any song correctly.</p>
+        {% endif %}
+        <p>Your final score is: {{ quiz_score }} / 3 Correct Guesses!</p>
+        <p><a href="/">Go back to home</a></p>
+        <div class="links"> 
+            <h4>Visit &#128071; </h4>
+            <a href="https://www.linkedin.com/in/iamrishabhacharya/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a>
+            <a href="https://velociteriseup.github.io" target="_blank"><i class="fas fa-briefcase"></i>Portfolio</a>
+        </div>
+    </div>
+</body>
+</html>
