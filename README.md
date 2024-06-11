@@ -15,12 +15,11 @@ This project is a web-based quiz application that allows users to test their kno
 - Quiz score is displayed at the end of the quiz.
 
 ## Technologies Used
-
-- **Flask**: Web framework for creating the application.
-- **Spotipy**: Python library for the Spotify Web API.
-- **HTML/CSS**: For the front-end design.
-- **Bootstrap**: For responsive UI design.
-- **Python**: Programming language for the backend logic.
+- ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) **Python**: Programming language for the backend logic.
+- ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white) **Flask**: Web framework for creating the application.
+- ![Spotipy](https://img.shields.io/badge/Spotipy-1DB954?style=for-the-badge&logo=spotify&logoColor=white) **Spotipy**: Python library for the Spotify Web API.
+- ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) **HTML/CSS**: For the front-end design.
+- ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white) **Bootstrap**: For responsive UI design.
 
 ## Libraries and Dependencies
 
@@ -51,4 +50,7 @@ This project is a web-based quiz application that allows users to test their kno
 ---
 
 Happy Quizzing!
-Author- Rishabh Acharya :)
+
+
+## Author
+Rishabh Acharya :)
