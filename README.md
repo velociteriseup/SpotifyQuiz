@@ -49,8 +49,7 @@ This project is a web-based quiz application that allows users to test their kno
 
 ---
 
-Happy Quizzing!
-
-
 ## Author
 Rishabh Acharya :)
+
+ Happy Quizzing!
