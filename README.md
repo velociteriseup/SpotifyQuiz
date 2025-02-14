@@ -1,3 +1,7 @@
+![ss6](https://github.com/user-attachments/assets/7e94f841-0bcb-45ec-a51c-b7c38efef427)
+![ss7](https://github.com/user-attachments/assets/23bffb3f-2ed2-44e9-aa95-4969e57460d5)
+![ss8](https://github.com/user-attachments/assets/33ecbd26-4dcd-4a7c-bc27-d8e59253988c)
+
 # Spotify Quiz Application
 
 ![Spotify Logo](https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg)
